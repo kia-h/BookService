@@ -18,6 +18,12 @@
         });
     }
 
+    self.detail = ko.observable();
+    self.getBookDetail = function (item) {
+        ajaxHelper(booksUr + item.id, 'GET').done(function (data) {
+            self.detail(data);
+    };
+
     function getAllBooks() {
         ajaxHelper(booksUri, 'GET').done(function (data) {
             self.books(data);
